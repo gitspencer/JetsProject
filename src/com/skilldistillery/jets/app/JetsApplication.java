@@ -28,7 +28,7 @@ public class JetsApplication {
 				ja.flyAllJets();
 				break;
 			case 3:
-				ja.fastestJet();
+				ja.printFastest();
 				break;
 			case 4:
 				ja.longestRange();
@@ -86,16 +86,16 @@ public class JetsApplication {
 //		calls fly() for entire fleet of jets and prints out details including mach and time in flight
 	}
 	
-	public void fastestJet() {
+	public void printFastest() {
 //		view fastestJet and print all details	
-//		System.out.println(af.getSpeedInMach(0));  
-		
-		
+		af.fastestJet();
+		printMenu();
 	}
 	
 	public void longestRange() {
 //		view longest range jet and print all details
-		
+		af.longRange();
+		printMenu();
 	}
 	
 	public void loadAllCargoJets() {

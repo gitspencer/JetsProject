@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 //	Only AirField can talk to fleet
 public class AirField {
 	private List<Jet> fleet;
@@ -76,5 +75,29 @@ public class AirField {
 			System.out.println(jet);
 		}
 	}
+	
+	public void fastestJet() {
+		List<Jet> fleet = getFleet();
+		Jet fastest = fleet.get(0);
+		for (int i = 0; i < fleet.size(); i++) {
+			Jet jet = fleet.get(i);
+			if(jet.getSpeed() > fastest.getSpeed()) {
+				fastest = jet;
+			}
+		}
+		System.out.println("Fastest Jet: " + fastest.toString());
+	}
 
+	public void longRange() {
+		List<Jet> fleet = getFleet();
+		Jet longest = fleet.get(0);
+		for (int i = 0; i < fleet.size(); i++) {
+			Jet jet = fleet.get(i);
+			if(jet.getRange() > longest.getRange()) {
+				longest = jet;
+			}
+		}
+		System.out.println("Fastest Jet: " + longest.toString());
+	}
+	
 }
