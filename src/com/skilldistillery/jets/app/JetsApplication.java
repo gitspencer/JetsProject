@@ -31,13 +31,13 @@ public class JetsApplication {
 				ja.printFastest();
 				break;
 			case 4:
-				ja.longestRange();
+				ja.printLongest();
 				break;
 			case 5:
-				ja.loadAllCargoJets();
+				ja.printLoadAllCargoJets();
 				break;
 			case 6:
-				ja.dogfight();
+				ja.printDogfight();
 				break;
 			case 7:
 				ja.addJet();
@@ -92,35 +92,38 @@ public class JetsApplication {
 		printMenu();
 	}
 	
-	public void longestRange() {
+	public void printLongest() {
 //		view longest range jet and print all details
 		af.longRange();
 		printMenu();
 	}
 	
-	public void loadAllCargoJets() {
+	public void printLoadAllCargoJets() {
 //		print out loading cargo from loadCargo()
 //		The user is presented with an option specific to the interfaces you created. 
 //		For example, Load all Cargo Jets, above, finds all implementors of the CargoCarrier interface
 //		and calls loadCargo() on each
-	
+		af.loadAllCargoJets();
+		printMenu();
 	}
 	
-	public void dogfight() {
-//		same ass load cargo but with fight()
-		
+	public void printDogfight() {
+//		same as load cargo but with fight()
+		af.dogfight();
+		printMenu();
 	}
 	
 	public void addJet() {
 //		user can add a PassengerJet to fleet, user enters information and its added to AirField
 		
+		printMenu();
 	}
 	
 	public void removeJet() {
 //		user can remove a Jet from fleet, user is presented sub-menu to select a jet to delete by 
 //		number. Print fleet detail with a unique #. have user select # to delete
 		
-		
+		printMenu();
 	}
 
 	public void quitApp() {

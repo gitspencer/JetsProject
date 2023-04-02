@@ -100,4 +100,27 @@ public class AirField {
 		System.out.println("Fastest Jet: " + longest.toString());
 	}
 	
+	public void loadAllCargoJets() {
+		List<Jet> fleet = getFleet();
+		for(int i = 0; i < fleet.size(); i++) {
+			Jet jet = fleet.get(i);
+			if (jet instanceof CargoJet) {
+				CargoJet cargo = (CargoJet) jet;
+				cargo.loadCargo();				
+			}
+		}
+	}
+
+	public void dogfight() {
+		List<Jet> fleet = getFleet();
+		for(int i = 0; i < fleet.size(); i++) {
+			Jet jet = fleet.get(i);
+			if (jet instanceof FighterJet) {
+				FighterJet fighter = (FighterJet) jet;
+				fighter.fight();				
+			}
+		}
+	}
+	
+	
 }
