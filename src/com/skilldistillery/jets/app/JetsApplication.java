@@ -77,11 +77,13 @@ public class JetsApplication {
 	
 	public void printFleet() {
 		af.listFleet();
+		System.out.println();
 		printMenu();
 	}
 	
 	public void flyAllJets() {
 		af.flyAll();
+		System.out.println();
 		printMenu();						
 //		calls fly() for entire fleet of jets and prints out details including mach and time in flight
 	}
@@ -89,12 +91,14 @@ public class JetsApplication {
 	public void printFastest() {
 //		view fastestJet and print all details	
 		af.fastestJet();
+		System.out.println();
 		printMenu();
 	}
 	
 	public void printLongest() {
 //		view longest range jet and print all details
 		af.longRange();
+		System.out.println();
 		printMenu();
 	}
 	
@@ -104,25 +108,29 @@ public class JetsApplication {
 //		For example, Load all Cargo Jets, above, finds all implementors of the CargoCarrier interface
 //		and calls loadCargo() on each
 		af.loadAllCargoJets();
+		System.out.println();
 		printMenu();
 	}
 	
 	public void printDogfight() {
 //		same as load cargo but with fight()
 		af.dogfight();
+		System.out.println();
 		printMenu();
 	}
 	
 	public void addJet() {
 //		user can add a PassengerJet to fleet, user enters information and its added to AirField
-		
+		af.addJet();
+		System.out.println();
 		printMenu();
 	}
 	
 	public void removeJet() {
 //		user can remove a Jet from fleet, user is presented sub-menu to select a jet to delete by 
 //		number. Print fleet detail with a unique #. have user select # to delete
-		
+		af.removeJet();
+		System.out.println();
 		printMenu();
 	}
 
@@ -132,6 +140,7 @@ public class JetsApplication {
 
 	public void printInvalid() {
 		System.out.println("Invalid selection. Please enter 1-9.");
+		System.out.println();
 		printMenu();		
 	}
 }

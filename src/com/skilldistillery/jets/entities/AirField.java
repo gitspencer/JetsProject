@@ -5,12 +5,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 //	Only AirField can talk to fleet
 public class AirField {
 	private List<Jet> fleet;
 	String fileName = "jets.txt";
-
+	Scanner sc = new Scanner(System.in);
+	
 	public AirField() {
 		// populate its fleet from file
 		readFromFile(fileName);
@@ -97,7 +99,7 @@ public class AirField {
 				longest = jet;
 			}
 		}
-		System.out.println("Fastest Jet: " + longest.toString());
+		System.out.println("Longest Range Jet: " + longest.toString());
 	}
 	
 	public void loadAllCargoJets() {
@@ -122,5 +124,34 @@ public class AirField {
 		}
 	}
 	
+	public void addJet() {
+		System.out.println("You are creating a new Passenger Jet"
+				+ "\nEnter model (ex. Jumbo Jet): ");
+		String model = sc.nextLine();
+		System.out.println("Enter speed (ex. 500.0): ");
+		double speed = sc.nextDouble();
+		System.out.println("Enter range (ex. 400): ");
+		int range = sc.nextInt();
+		System.out.println("Enter price (ex. 10000000): ");
+		long price = sc.nextLong();
+		PassengerJet newJet = new PassengerJet(model, speed, range, price);
+		fleet.add(newJet);
+		System.out.println("Added jet to fleet: " + newJet.toString());
 	
+	}
+
+	public void removeJet() {
+		System.out.println("Select a jet to remove from fleet: ");
+		for (int i = 0; i < fleet.size(); i++) {
+			System.out.println(i + 1 + ". " + fleet.get(i).toString());
+		}
+		int delete = sc.nextInt() - 1;
+		List<Jet> fleet = getFleet();
+		Jet deleteJet = fleet.get(delete);
+		fleet.remove(deleteJet);
+		System.out.println("Jet removed from fleet. Fleet Status: ");
+		for (Jet jet : fleet) {			
+			System.out.println(jet.toString());
+		}
+	}
 }
