@@ -53,13 +53,6 @@ public class JetsApplication {
 				break;
 			} 
 		} while (selection != 9);	
-		
-//		
-//		
-//		
-//		
-//		
-		
 		sc.close();
 	}
 

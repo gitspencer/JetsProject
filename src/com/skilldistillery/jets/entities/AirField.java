@@ -12,11 +12,10 @@ public class AirField {
 	private List<Jet> fleet;
 	String fileName = "jets.txt";
 	Scanner sc = new Scanner(System.in);
-	
+
 	public AirField() {
 		// populate its fleet from file
 		readFromFile(fileName);
-
 	}
 
 	public List<Jet> readFromFile(String fileName) {
@@ -61,29 +60,29 @@ public class AirField {
 	public void setFleet(List<Jet> fleet) {
 		this.fleet = fleet;
 	}
-	
+
 	public void listFleet() {
 		List<Jet> fleet = getFleet();
-		for(int i = 0; i < fleet.size(); i++) {
+		for (int i = 0; i < fleet.size(); i++) {
 			System.out.println(fleet.get(i).toString());
 		}
 	}
-	
+
 	public void flyAll() {
 		List<Jet> fleet = getFleet();
-		for(int i = 0; i < fleet.size(); i++) {
+		for (int i = 0; i < fleet.size(); i++) {
 			Jet jet = fleet.get(i);
 			jet.fly();
 			System.out.println(jet);
 		}
 	}
-	
+
 	public void fastestJet() {
 		List<Jet> fleet = getFleet();
 		Jet fastest = fleet.get(0);
 		for (int i = 0; i < fleet.size(); i++) {
 			Jet jet = fleet.get(i);
-			if(jet.getSpeed() > fastest.getSpeed()) {
+			if (jet.getSpeed() > fastest.getSpeed()) {
 				fastest = jet;
 			}
 		}
@@ -95,53 +94,51 @@ public class AirField {
 		Jet longest = fleet.get(0);
 		for (int i = 0; i < fleet.size(); i++) {
 			Jet jet = fleet.get(i);
-			if(jet.getRange() > longest.getRange()) {
+			if (jet.getRange() > longest.getRange()) {
 				longest = jet;
 			}
 		}
 		System.out.println("Longest Range Jet: " + longest.toString());
 	}
-	
+
 	public void loadAllCargoJets() {
 		List<Jet> fleet = getFleet();
-		for(int i = 0; i < fleet.size(); i++) {
+		for (int i = 0; i < fleet.size(); i++) {
 			Jet jet = fleet.get(i);
 			if (jet instanceof CargoJet) {
 				CargoJet cargo = (CargoJet) jet;
-				cargo.loadCargo();				
+				cargo.loadCargo();
 			}
 		}
 	}
 
 	public void dogfight() {
 		List<Jet> fleet = getFleet();
-		for(int i = 0; i < fleet.size(); i++) {
+		for (int i = 0; i < fleet.size(); i++) {
 			Jet jet = fleet.get(i);
 			if (jet instanceof FighterJet) {
 				FighterJet fighter = (FighterJet) jet;
-				fighter.fight();				
+				fighter.fight();
 			}
 		}
 	}
-	
+
 	public void addJet() {
-		System.out.println("You are creating a new Passenger Jet"
-				+ "\nEnter model (ex. Jumbo Jet): ");
+		System.out.println("You are creating a new Passenger Jet" + "\nEnter model (ex. Jumbo Jet): ");
 		String model = sc.nextLine();
-		System.out.println("Enter speed (ex. 500.0): ");
+		System.out.println("Enter speed in MPH (ex. 500.0): ");
 		double speed = sc.nextDouble();
-		System.out.println("Enter range (ex. 400): ");
+		System.out.println("Enter range in miles (ex. 400): ");
 		int range = sc.nextInt();
 		System.out.println("Enter price (ex. 10000000): ");
 		long price = sc.nextLong();
 		PassengerJet newJet = new PassengerJet(model, speed, range, price);
 		fleet.add(newJet);
 		System.out.println("Added jet to fleet: " + newJet.toString());
-	
 	}
 
 	public void removeJet() {
-		System.out.println("Select a jet to remove from fleet: ");
+		System.out.println("Select a number to remove that jet from fleet (ex. 1 or 2 or...): ");
 		for (int i = 0; i < fleet.size(); i++) {
 			System.out.println(i + 1 + ". " + fleet.get(i).toString());
 		}
@@ -150,7 +147,7 @@ public class AirField {
 		Jet deleteJet = fleet.get(delete);
 		fleet.remove(deleteJet);
 		System.out.println("Jet removed from fleet. Fleet Status: ");
-		for (Jet jet : fleet) {			
+		for (Jet jet : fleet) {
 			System.out.println(jet.toString());
 		}
 	}

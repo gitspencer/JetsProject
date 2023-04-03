@@ -15,6 +15,4 @@ public class PassengerJet extends Jet{
 		double flightTime = (double) (getRange() / getSpeed());
 		System.out.printf("Passenger Jet - Flight time: " + (Math.round(flightTime * 100.0) /100.0) + ", Mach speed: " + getSpeedInMach() + ", Details of ");
 	}
-	
-	
 }

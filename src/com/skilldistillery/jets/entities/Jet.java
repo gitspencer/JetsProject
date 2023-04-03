@@ -63,5 +63,4 @@ public abstract class Jet {
 				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price) && range == other.range
 				&& speed == other.speed;
 	}
-	
 }

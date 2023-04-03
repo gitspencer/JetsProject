@@ -15,5 +15,4 @@ public class Blimp extends Jet {
 		double flightTime = (double) (getRange() / getSpeed());
 		System.out.printf("Blimp - Flight time: " + (Math.round(flightTime * 100.0) /100.0) + ", Mach speed: " + getSpeedInMach() + ", Details of ");
 	}
-	
 }
